@@ -8,5 +8,5 @@ module.exports = {
         uri: 'mongodb://localhost/skynet-dev'
     },
 
-    seedDB: true
+    seedDB: false
 };

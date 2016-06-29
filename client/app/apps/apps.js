@@ -5,6 +5,7 @@ angular.module('skynetApp')
         $stateProvider
             .state('apps', {
                 url: '/apps',
+                template: "<div ui-view></div>",
                 absolute: true,
                 authenticate: true
             })
@@ -17,7 +18,7 @@ angular.module('skynetApp')
             })
             .state('apps.connected', {
                 url: '/connected',
-                templateUrl: "app/apps/my-apps.html",
+                templateUrl: "app/apps/connected-apps.html",
                 controller: function () {
 
                 }
