@@ -12,15 +12,15 @@
         <div class="form-group">
             <hr/>
             <label for="">App Name</label>
-            <input class="form-control" type="text" data-ng-model="ctrl.app.name"/>
+            <input class="form-control" type="text" data-ng-model="ctrl.app.name" required/>
         </div>
         <div class="form-group">
             <label for="">Website Url</label>
-            <input class="form-control" type="text" placeholder="http://example.com" data-ng-model="ctrl.app.url"/>
+            <input class="form-control" type="text" placeholder="http://example.com" data-ng-model="ctrl.app.url" required/>
         </div>
         <div class="form-group">
             <label for="">Redirect Url</label>
-            <input class="form-control" type="text"  placeholder="http://example.com/auth/handle" data-ng-model="ctrl.app.redirectUrl"/>
+            <input class="form-control" type="text"  placeholder="http://example.com/auth/handle" data-ng-model="ctrl.app.redirectUrl" required/>
         </div>
         <div class="form-group" data-ng-if="ctrl.app.appId">
             <label for="">APP ID</label>

@@ -24,11 +24,30 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+        <tr data-ng-repeat="app in ctrl.apps">
+            <td>{{$index + 1}}</td>
+            <td>
+                <a ui-sref="apps.edit(app)">{{app.name}}</a>
+            </td>
+            <td>{{app.dateCreated | date:'yyyy/mm/dd'}}</td>
+            <td>
+                <a class="btn btn-danger btn-xs"
+                        data-ng-click="ctrl.delete(app)"
+                        >
+                    <span class="glyphicon glyphicon-trash"></span>
+                </a>
+            </td>
+        </tr>
+        <tr data-ng-if="!ctrl.apps.length" style="text-align: center;">
+            <td  colspan="4" style="padding: 50px;"> No apps created! Add one now.
+                <br/>
+                <br/>
+                <a ui-sref="apps.add"
+                                                                        class="btn btn-success btn-xs">
+                <span class="glyphicon glyphicon-plus-sign"></span>
+                &nbsp;
+                <b>ADD APP</b>
+            </a></td>
         </tr>
         </tbody>
 
