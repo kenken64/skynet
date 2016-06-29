@@ -17,7 +17,6 @@ angular.module('skynetApp')
             $http.post("/api/v1/apps", {
                 data: self.app
             }).success(function (data) {
-                console.log("Done!!!")
                 $state.go("apps.edit", data)
             })
         };
