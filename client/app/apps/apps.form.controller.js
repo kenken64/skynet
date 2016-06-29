@@ -14,11 +14,10 @@ angular.module('skynetApp')
         }
 
         self.save = function () {
-            $http.post("/api/v1/apps", {
-                data: self.app
-            }).success(function (data) {
-                $state.go("apps.edit", data)
-            })
+            $http.post("/api/v1/apps", self.app)
+                .success(function (data) {
+                    $state.go("apps.edit", data)
+                })
         };
 
 
