@@ -9,6 +9,7 @@
     </ol>
     <h2>Add App</h2>
     <form name="form" data-ng-submit="form.$valid && ctrl.save()">
+        {{form}}
         <div class="form-group">
             <hr/>
             <label for="">App Name</label>
@@ -22,7 +23,7 @@
             <label for="">Redirect Url</label>
             <input class="form-control" type="text"  placeholder="http://example.com/auth/handle" data-ng-model="ctrl.app.redirectUrl"/>
         </div>
-        <div class="form-group" data-ng-if="ctrl.app.appId>
+        <div class="form-group" data-ng-if="ctrl.app.appId">
             <label for="">APP ID</label>
             <input class="form-control" type="text" value="{{ctrl.app.appId}}"/>
         </div>
