@@ -12,23 +12,17 @@ angular.module('skynetApp')
             .state('apps.my', {
                 url: '/my',
                 templateUrl: "app/apps/my-apps.html",
-                controller: function () {
-
-                }
+                controller: "AppsListCtrl"
             })
             .state('apps.add', {
                 url: '/add',
                 templateUrl: "app/apps/form.html",
-                controller: function () {
-
-                }
+                controller: "AppsFormCtrl"
             })
             .state('apps.edit', {
                 url: '/edit/:id',
                 templateUrl: "app/apps/form.html",
-                controller: function () {
-
-                }
+                controller: "AppsFormCtrl"
             })
             .state('apps.connected', {
                 url: '/connected',
