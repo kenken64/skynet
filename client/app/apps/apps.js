@@ -16,6 +16,20 @@ angular.module('skynetApp')
 
                 }
             })
+            .state('apps.add', {
+                url: '/add',
+                templateUrl: "app/apps/form.html",
+                controller: function () {
+
+                }
+            })
+            .state('apps.edit', {
+                url: '/edit/:id',
+                templateUrl: "app/apps/form.html",
+                controller: function () {
+
+                }
+            })
             .state('apps.connected', {
                 url: '/connected',
                 templateUrl: "app/apps/connected-apps.html",
