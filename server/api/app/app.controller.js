@@ -5,7 +5,9 @@ var App = require('./app.model');
 
 // Get list of apps
 exports.index = function (req, res) {
-    App.find(function (err, apps) {
+    App.find({
+        createdBy: req.user._id
+    }, function (err, apps) {
         if (err) {
             return handleError(res, err);
         }
@@ -15,7 +17,10 @@ exports.index = function (req, res) {
 
 // Get a single app
 exports.show = function (req, res) {
-    App.findById(req.params.id, function (err, app) {
+    App.findOne({
+        _id: req.params.id,
+        createdBy: req.user._id
+    }, function (err, app) {
         if (err) {
             return handleError(res, err);
         }
@@ -28,6 +33,7 @@ exports.show = function (req, res) {
 
 // Creates a new app in the DB.
 exports.create = function (req, res) {
+    req.body.createdBy = req.user._id;
     App.create(req.body, function (err, app) {
         if (err) {
             return handleError(res, err);
@@ -41,7 +47,13 @@ exports.update = function (req, res) {
     if (req.body._id) {
         delete req.body._id;
     }
-    App.findById(req.params.id, function (err, app) {
+    if (req.body.createdBy) {
+        delete req.body.createdBy;
+    }
+    App.findOne({
+        _id: req.params.id,
+        createdBy: req.user._id
+    }, function (err, app) {
         if (err) {
             return handleError(res, err);
         }
@@ -60,7 +72,10 @@ exports.update = function (req, res) {
 
 // Deletes a app from the DB.
 exports.destroy = function (req, res) {
-    App.findById(req.params.id, function (err, app) {
+    App.findOne({
+        _id: req.params.id,
+        createdBy: req.user._id
+    }, function (err, app) {
         if (err) {
             return handleError(res, err);
         }
